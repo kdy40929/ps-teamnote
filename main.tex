@@ -1,0 +1,262 @@
+\documentclass[a4paper,landscape,9pt,twocolumn]{article}
+
+% ---- Language / Font ----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{kotex}
+\usepackage{fontspec}
+\usepackage{mathtools}
+\usepackage{graphicx}
+
+\setmainhangulfont{Noto Serif CJK KR}
+
+% ---- Page layout ----
+\usepackage{geometry}
+\geometry{
+  left=14mm, right=14mm,
+  top=14mm, bottom=14mm,
+  headsep=3mm
+}
+
+% ---- Header / Footer ----
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\textbf{Semi-Game Cup 4}}
+\rhead{\small\texttt{kdy40929}}
+\cfoot{\small \thepage\ / \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---- Section style ----
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\small\bfseries}{\thesubsubsection}{0.5em}{}
+
+% 제목 간격(위/아래): left, before, after
+\titlespacing*{\section}{0pt}{0.6em}{0.2em}
+\titlespacing*{\subsection}{0pt}{0.4em}{0.2em}
+\titlespacing*{\subsubsection}{0pt}{0.3em}{0.1em}
+
+% ---- Compact spacing ----
+\usepackage{enumitem}
+\setlist{nosep}
+\setlength{\parskip}{0.1em}
+\setlength{\parindent}{0pt}
+
+% 두 단에서 간격 조금 줄이기 (원하면 더 조절)
+\setlength{\columnsep}{6mm}
+
+% ---- Code blocks ----
+\usepackage[highlightmode=immediate]{minted}
+\usepackage{xcolor}
+
+\setminted{
+  fontsize=\fontsize{8}{9.5}\selectfont,
+  breaklines,
+  breakanywhere,
+  tabsize=2,
+  autogobble
+}
+
+\usemintedstyle{manni}
+
+\begin{document}
+\raggedbottom
+
+% =========================
+% Table of Contents
+% =========================
+\section*{kdy40929's Reference List v1.0 - 2026.01.12}
+\vspace{-2mm}
+\renewcommand{\contentsname}{}
+\tableofcontents
+
+\newpage
+
+% =========================
+% Main Contents
+% =========================
+
+\section{Math}
+\subsection {Linear Algebra}
+\subsubsection{Matrix Operations}
+\inputminted{python}{codes/math/matrix.py}
+\subsubsection{Gauss Elimination}
+\inputminted{python}{codes/math/gauss.py}
+\subsubsection{XOR basis}
+\inputminted{python}{codes/math/xor_basis.py}
+
+\subsection{Number Theory}
+\subsubsection{Euler Phi}
+\inputminted{python}{codes/math/euler_phi.py}
+\subsubsection{Miller labin \& Pollard Rho}
+\inputminted{python}{codes/math/miller_labin.py}
+\subsubsection{Combination with Lucas Theorem}
+\inputminted{python}{codes/math/lucas.py}
+
+\subsection{Geometry}
+\subsubsection{Geometry}
+\inputminted{python}{codes/math/geo.py}
+
+\subsection{Others}
+\subsubsection{FFT}
+\inputminted{python}{codes/math/fft.py}
+\subsubsection{Floor Sum}
+\inputminted{python}{codes/math/floorsum.py}
+
+\section{Data Structures}
+\subsection{Deque}
+\subsubsection{Deque Trick}
+\inputminted{python}{codes/ds/deque.py}
+\subsection{Segment Tree}
+\subsubsection{Fenwick Tree}
+\inputminted{python}{codes/ds/fenwick.py}
+\subsubsection{Non-recurisve Range Update Range Query}
+\inputminted{python}{codes/ds/lazyseg.py}
+\subsubsection{Merge Sort Tree}
+\inputminted{python}{codes/ds/mst.py}
+\subsubsection{2D Segment Tree}
+\inputminted{python}{codes/ds/2dseg.py}
+\subsubsection{Maximum Subarray Sum Segment Tree}
+\inputminted{python}{codes/ds/mineseg.py}
+\subsection{Trie}
+\subsubsection{1D Trie}
+\inputminted{python}{codes/ds/trie.py}
+
+\section{Graphs}
+\subsection{Shortest Path}
+\subsubsection{Dijkstra}
+\inputminted{python}{codes/graphs/dijkstra.py}
+\subsubsection{Bellman Ford}
+\inputminted{python}{codes/graphs/bellman_ford.py}
+\subsubsection{SPFA}
+\inputminted{python}{codes/graphs/spfa.py}
+\subsubsection{Floyd Warshall}
+\inputminted{python}{codes/graphs/floyd.py}
+\subsection{SCC and similar}
+\subsubsection{SCC}
+\inputminted{python}{codes/graphs/scc.py}
+\subsubsection{2-SAT}
+\inputminted{python}{codes/graphs/2sat.py}
+\subsubsection{Articulation}
+\inputminted{python}{codes/graphs/articulation.py}
+\subsection{Matching \& Flow}
+\subsubsection{Bipartite Matching - Hopcroft Karp}
+\inputminted{python}{codes/graphs/hopcroft.py}
+\subsubsection{Dinic Algorithm}
+\inputminted{python}{codes/graphs/dinic.py}
+\subsubsection{Dinic with low memory}
+\inputminted{python}{codes/graphs/dinic_opt.py}
+\subsubsection{MCMF}
+\inputminted{python}{codes/graphs/mcmf.py}
+\subsection{Trees}
+\subsubsection{LCA}
+\inputminted{python}{codes/graphs/lca.py}
+\subsubsection{HLD}
+\inputminted{python}{codes/graphs/hld.py}
+
+\section{DP}
+\subsection{Basic DP}
+\subsubsection{LIS}
+\inputminted{python}{codes/dp/lis.py}
+\subsection{DP optimization}
+\subsubsection{Convex Hull Trick}
+$dp[i] = \min_{j < i} (dp[j] + A[j]*B[i])$ 형태의 관계식을 $A[j] = a, B[i] = x, dp[j] = b$로 하여 $y = ax+b$ 꼴의 직선들의 볼록 껍질을 만들어 해결한다.
+$A[j]$의 단조성이 보장되어야 한다.\\
+\inputminted{python}{codes/dp/cht.py}
+
+\section{String}
+\subsection{Pattern Matching}
+\subsubsection{KMP}
+\inputminted{python}{codes/string/kmp.py}
+\subsubsection{Aho Corasick}
+\inputminted{python}{codes/string/corasick.py}
+\subsection{Substring Algorithm}
+\subsubsection{Rolling Hash}
+\inputminted{python}{codes/string/hashing.py}
+\subsubsection{Z}
+\inputminted{python}{codes/string/z.py}
+\subsubsection{Manacher}
+\inputminted{python}{codes/string/manacher.py}
+\subsubsection{Suffix array \& LCP array}
+\inputminted{python}{codes/string/salcp.py}
+
+\section{Misc}
+\subsection{Useful Codes}
+\subsubsection{Fast I/O}
+\inputminted{python}{codes/misc/fastio.py}
+\subsubsection{Coordinate Compression}
+\inputminted{python}{codes/misc/compress.py}
+\subsection{Others}
+\subsubsection{Graph Theorem}
+쾨닉의 정리: 이분 그래프에서 (최대 매칭) = (최소 정점 커버) \\
+이분 그래프에서 (정점 수) = (최대 매칭) + (최대 독립집합 크기) \\
+홀의 결혼 정리: 이분 그래프에서 좌측 집합 $L$의 모든 부분집합 $S \subset L$에 대해 $|N(S)| \ge |S|$이면 $L$에 대한 완전 매칭 존재
+\subsubsection{Useful Number}
+NTT Friendly Prime \\
+$ 998244353 = 119 \times 2^{23} + 1 $, Primitive Root = $3$ \\
+$ 985661441 = 235 \times 2^{22} + 1 $, Primitive Root = $3$ \\
+Useful Prime Number \\
+$10^{8} + 7$, $10^{9} + 7$, $10^{9} + 9$, $10^{11} + 3$, $10^{12} + 39$ $10^{18} + 3$ \\
+
+\subsubsection{Useful Sequences}
+Fibonacci $F_n$ \\
+$F_0 = 0$, $F_1 = 1$, $F_n = F_{n-1} + F_{n-2}$ \\
+$0$, $1$, $1$, $2$, $3$, $5$, $8$, $13$, $21$, $34$, $55$, $89$, $144$, $233$, $377$, $610$, $987$, $1597$, $2584$ $\cdots$
+\newline
+
+Lucas $L_n$ \\
+$L_0 = 2$, $L_1 = 1$, $L_n = L_{n-1} + L_{n-2}$ \\
+$2$, $1$, $3$, $4$, $7$, $11$, $18$, $29$, $47$, $76$, $123$, $199$, $322$, $521$, $843$, $1364$, $2207$ $\cdots$
+\newline
+
+Tribonacci $T_n$ \\
+$T_0 = 0$, $T_1 = 0$, $T_2 = 1$, $T_n = T_{n-1} + T_{n-2} + T_{n-3}$ \\
+$0$, $0$, $1$, $1$, $2$, $4$, $7$, $13$, $24$, $44$, $81$, $149$, $274$, $504$, $927$, $1705$ $\cdots$
+\newline
+
+Catalan $C_n$ \\
+$C_0 = 1$, $C_n = \frac{1}{n+1}\binom{2n}{n}$ \\
+$1$, $1$, $2$, $5$, $14$, $42$, $132$, $429$, $1430$, $4862$, $16796$, $58786$, $208012$, $742900$ $\cdots$
+\newline
+
+Central Binomial Coefficient $B_n$ \\
+$B_n = \binom{2n}{n}$ \\
+$1$, $2$, $6$, $20$, $70$, $252$, $924$, $3432$, $12870$, $48620$, $184756$, $705432$, $2704156$ $\cdots$
+\newline
+
+Partition Number $p(n)$ \\
+$p(0)=1$, $p(n)=\sum_{k\neq 0} (-1)^{k-1} p!\left(n-\dfrac{k(3k-1)}{2}\right)$ \\
+$1$, $1$, $2$, $3$, $5$, $7$, $11$, $15$, $22$, $30$, $42$, $56$, $77$, $101$, $135$, $176$, $231$ $\cdots$
+\newline
+
+Bell $B_n$ \\
+$1$부터 $n$까지 자연수로 이루어진 집합을 분할하는 방법의 수 \\
+$B_0 = 1$, $B_{n+1} = \sum_{k=0}^{n} \binom{n}{k} B_k$ \\
+$1$, $1$, $2$, $5$, $15$, $52$, $203$, $877$, $4140$, $21147$, $115975$, $678570$ $\cdots$
+\newline
+
+Partition number $p(n,k)$ \\
+정수 $n$을 정확히 $k$개의 양의 정수의 합으로 나타내는 방법의 수 (순서는 무시) \\
+$p(0,0)=1$, $p(n,0)=0\ (n>0)$, $p(0,k)=0\ (k>0)$ \\
+$p(n,k)=p(n-1,k-1)+p(n-k,k)$ \\
+\newline
+
+Stirling (1st kind) $s(n, k)$ \\
+$x^{\underline{n}}$, $x$의 $n$ 하강 계승의 $x^{k}$ 계수  \\
+$s(0,0)=1$, $s(n,0)=0\ (n>0)$, $s(n,k)=s(n-1,k-1)-(n-1)s(n-1,k)$ \\
+\newline
+
+Stirling (2nd kind) $S(n,k)$ \\
+$1$부터 $n$까지의 자연수로 이루어진 집합을 $k$개로 분할하는 방법의 수 \\
+$S(0,0)=1$, $S(n,0)=0\ (n>0)$, $S(n,k)=S(n-1,k-1)+kS(n-1,k)$ \\
+\newline
+
+
+
+\end{document}
